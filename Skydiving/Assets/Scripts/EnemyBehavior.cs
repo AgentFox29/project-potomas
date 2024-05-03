@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public Rigidbody2D rigidbody;
-    public float moveSpeed = 20;
+    public Transform playerTransform;
+    public float speed = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    private void Update()
-    {
-        if (rigidbody.position.y >= 12)
-        {
-            Destroy(gameObject);
-        }
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        rigidbody.MovePosition(rigidbody.position + new Vector2(0, 1) * moveSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, Time.deltaTime * speed);
     }
 }
