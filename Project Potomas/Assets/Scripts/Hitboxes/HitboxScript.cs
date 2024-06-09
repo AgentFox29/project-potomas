@@ -4,52 +4,39 @@ using UnityEngine;
 
 public class HitboxScript : MonoBehaviour
 {
-    public float despawnTime;
-    public float attackScaling = 1;
-    public float critDamage = 1;
-
-    Stats playerStats;
-    Stats enemyStats;
-
+    public float attackScaling = 1f;
 
     // Start is called before the first frame update
     void Awake()
     {
-        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        { 
-            enemyStats = collision.gameObject.GetComponent<Stats>();
-
-            float calcCrit = Random.Range(0, 101);
-
-            if (calcCrit < playerStats.critRate)
-            {
-                critDamage = playerStats.critDamage;
-            }
-            else
-            {
-                critDamage = 1;
-            }
-
-            enemyStats.currentHealth -= (playerStats.finalAttack * attackScaling * critDamage);
-            Debug.Log("Collision Happened");
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (despawnTime <= 0)
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy") 
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            despawnTime -= 1 * Time.deltaTime;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Stats playerStats = player.GetComponent<Stats>();
+
+            Stats enemyStats = collision.GetComponent<Stats>();
+
+            float critRoll = Random.Range(1, 100);
+            float calcCritDmg = 1;
+
+            if (critRoll <= playerStats.critRate)
+            {
+                calcCritDmg = playerStats.critDamage;
+            }
+
+            enemyStats.currentHealth -= (playerStats.finalAttack * attackScaling * calcCritDmg);
+
+            Debug.Log("we has a trig");
         }
     }
 }

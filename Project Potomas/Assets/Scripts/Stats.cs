@@ -20,10 +20,16 @@ public class Stats : MonoBehaviour
     public float moveSpeed = 5;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         finalMaxHealth = baseHealth * healthPercent;
+        finalAttack = baseAttack * attackPercent;
         currentHealth = finalMaxHealth * healthPercent;
+    }
+
+    void FixedUpdate()
+    {
+        finalMaxHealth = baseHealth * healthPercent;
         finalAttack = baseAttack * attackPercent;
     }
 
@@ -31,5 +37,9 @@ public class Stats : MonoBehaviour
     void Update()
     {
         
+    }
+
+    static void UpdateStats()
+    {
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7544420577035994017}
   - component: {fileID: 3644070997377807478}
   - component: {fileID: 5799362586151487567}
-  - component: {fileID: -5775137243365464835}
+  - component: {fileID: 2072528823677699598}
   m_Layer: 0
   m_Name: swordSwingHitbox
   m_TagString: Untagged
@@ -102,7 +102,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5775137243365464835
+--- !u!114 &2072528823677699598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,9 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8428073931015938852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884d4536d7981094a8412599728afdd8, type: 3}
+  m_Script: {fileID: 11500000, guid: a9c983a4adca95048a40255474aa6bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnTime: 2
-  attackScaling: 1
-  critDamage: 1

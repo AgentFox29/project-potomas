@@ -9,13 +9,13 @@ public class EntityDeath : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        stats = GetComponent<Stats>();
+        stats = gameObject.GetComponent<Stats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (stats.currentHealth < 0)
+        if (stats.currentHealth <= 0)
         {
             Destroy(gameObject);
         }

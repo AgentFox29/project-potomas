@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class WeaponAttack : MonoBehaviour
 {
-    public GameObject swordSwingHitbox;
+    public GameObject basicOne;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Object.Instantiate(swordSwingHitbox, transform.position, transform.rotation);
+            Object.Instantiate(basicOne, transform.position, transform.rotation);
         }
     }
 }
