@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5799362586151487567}
   - component: {fileID: 2072528823677699598}
   m_Layer: 0
-  m_Name: swordSwingHitbox
-  m_TagString: Untagged
+  m_Name: swordBasicOne
+  m_TagString: PlayerHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,3 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c983a4adca95048a40255474aa6bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackScaling: 1
+  hitboxSpawner: {fileID: 0}

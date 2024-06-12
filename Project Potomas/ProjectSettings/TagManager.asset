@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerAttack
-  - EnemyAttack
   - Enemy
+  - PlayerHitbox
+  - EnemyHitbox
   layers:
   - Default
   - TransparentFX

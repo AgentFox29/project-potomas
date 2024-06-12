@@ -5,11 +5,12 @@ using UnityEngine;
 public class WeaponAttack : MonoBehaviour
 {
     public GameObject basicOne;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -17,7 +18,9 @@ public class WeaponAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Object.Instantiate(basicOne, transform.position, transform.rotation);
+            GameObject spawnedBasicOne = GameObject.Instantiate(basicOne, transform.position, transform.rotation);
+            HitboxScript spawnedHitboxScript = spawnedBasicOne.GetComponent<HitboxScript>();
+            spawnedHitboxScript.hitboxSpawner = player;
         }
     }
 }
